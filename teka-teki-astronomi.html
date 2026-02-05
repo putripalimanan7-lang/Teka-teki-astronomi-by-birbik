@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teka-Teki Astronomi | Bintang Kuis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0a0015, #180033);
+      color: #e8dfff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(25, 5, 70, 0.9);
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 4px solid #aa77ff;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #ffdd77;
+      text-shadow: 0 0 20px #ffaa00;
+    }
+    .subtitle { font-size: 1.3rem; color: #d0bbff; margin: 0.6rem 0; }
+    .credit { font-size: 1rem; color: #bb99ff; font-style: italic; }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 2rem 1rem;
+      background: rgba(20, 0, 60, 0.6);
+    }
+    .menu-btn {
+      background: rgba(70, 40, 130, 0.8);
+      color: white;
+      border: none;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 80%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .menu-btn:hover {
+      background: #ff6f61;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(255, 80, 60, 0.5);
+    }
+
+    .level-section {
+      display: none;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+    .level-section.active {
+      display: block;
+    }
+    .back-btn {
+      display: inline-block;
+      color: #bb99ff;
+      text-decoration: none;
+      font-size: 1.15rem;
+      margin: 1rem 0 2rem;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid #9966ff;
+      border-radius: 12px;
+      background: rgba(50, 20, 100, 0.4);
+    }
+    .back-btn:hover {
+      background: rgba(80, 40, 140, 0.6);
+      color: #ffdd77;
+    }
+
+    .soal {
+      background: rgba(45, 25, 95, 0.65);
+      border: 1px solid #9966ff;
+      border-radius: 16px;
+      padding: 1.6rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+    }
+    .soal h3 {
+      color: #bbffdd;
+      margin: 0 0 1.2rem;
+      font-size: 1.4rem;
+    }
+    .pilihan label {
+      display: block;
+      background: rgba(90, 60, 150, 0.5);
+      padding: 0.9rem 1.4rem;
+      margin: 0.6rem 0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pilihan label:hover {
+      background: rgba(110, 80, 170, 0.75);
+      transform: translateX(8px);
+    }
+    .jawab-btn {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1.05rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 1.2rem;
+    }
+    .jawab-btn:hover { background: #ff9080; }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #aa99cc;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✦ Teka-Teki Astronomi ✦</h1>
+    <div class="subtitle">Tantang pengetahuan langitmu!</div>
+    <div class="credit">web by birbik</div>
+  </header>
+
+  <div class="menu" id="mainMenu">
+    <button class="menu-btn" onclick="showLevel('mudah')">Mudah</button>
+    <button class="menu-btn" onclick="showLevel('sedang')">Sedang</button>
+    <button class="menu-btn" onclick="showLevel('susah')">Susah</button>
+  </div>
+
+  <!-- =================== LEVEL MUDAH =================== -->
+  <div id="mudah" class="level-section">
+    <a href="#" class="back-btn" onclick="showMainMenu()">← Kembali ke Menu</a>
+    <h2 style="text-align:center; color:#ffdd77; margin-bottom:2rem;">Level Mudah</h2>
+
+    <div class="soal"><h3>1. Benda paling terang di siang hari?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m1"> a. Bulan</label>
+        <label><input type="radio" name="m1"> b. Matahari</label>
+        <label><input type="radio" name="m1"> c. Venus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Matahari')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>2. Planet tempat kita tinggal?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m2"> a. Mars</label>
+        <label><input type="radio" name="m2"> b. Bumi</label>
+        <label><input type="radio" name="m2"> c. Jupiter</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Bumi')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>3. Apa yang mengelilingi Bumi?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m3"> a. Bulan</label>
+        <label><input type="radio" name="m3"> b. Matahari</label>
+        <label><input type="radio" name="m3"> c. Bintang</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Bulan')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>4. Planet terbesar di tata surya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m4"> a. Bumi</label>
+        <label><input type="radio" name="m4"> b. Jupiter</label>
+        <label><input type="radio" name="m4"> c. Saturnus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Jupiter')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>5. Planet yang terkenal dengan cincin indahnya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m5"> a. Mars</label>
+        <label><input type="radio" name="m5"> b. Saturnus</label>
+        <label><input type="radio" name="m5"> c. Uranus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Saturnus')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>6. Apa warna Matahari sebenarnya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m6"> a. Merah</label>
+        <label><input type="radio" name="m6"> b. Putih</label>
+        <label><input type="radio" name="m6"> c. Kuning</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Putih (Terlihat kuning karena atmosfer)')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>7. Bintang terdekat dengan Bumi?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m7"> a. Matahari</label>
+        <label><input type="radio" name="m7"> b. Sirius</label>
+        <label><input type="radio" name="m7"> c. Proxima Centauri</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Matahari')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>8. Bulan mengorbit planet apa?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m8"> a. Mars</label>
+        <label><input type="radio" name="m8"> b. Bumi</label>
+        <label><input type="radio" name="m8"> c. Venus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Bumi')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>9. Apa yang menyebabkan siang dan malam?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m9"> a. Bumi berputar pada porosnya</label>
+        <label><input type="radio" name="m9"> b. Matahari mengelilingi Bumi</label>
+        <label><input type="radio" name="m9"> c. Bulan berputar</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Bumi berputar pada porosnya')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>10. Planet paling panas di tata surya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="m10"> a. Merkurius</label>
+        <label><input type="radio" name="m10"> b. Venus</label>
+        <label><input type="radio" name="m10"> c. Mars</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Venus')">Lihat Jawaban</button>
+    </div>
+  </div>
+
+  <!-- =================== LEVEL SEDANG =================== -->
+  <div id="sedang" class="level-section">
+    <a href="#" class="back-btn" onclick="showMainMenu()">← Kembali ke Menu</a>
+    <h2 style="text-align:center; color:#ffdd77; margin-bottom:2rem;">Level Sedang</h2>
+
+    <div class="soal"><h3>1. Bintang terdekat dengan Matahari setelah Matahari sendiri?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s1"> a. Sirius</label>
+        <label><input type="radio" name="s1"> b. Proxima Centauri</label>
+        <label><input type="radio" name="s1"> c. Alpha Centauri A</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Proxima Centauri')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>2. Planet yang harinya lebih panjang dari tahunnya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s2"> a. Mars</label>
+        <label><input type="radio" name="s2"> b. Venus</label>
+        <label><input type="radio" name="s2"> c. Merkurius</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Venus')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>3. Satelit alami terbesar Jupiter?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s3"> a. Io</label>
+        <label><input type="radio" name="s3"> b. Ganymede</label>
+        <label><input type="radio" name="s3"> c. Europa</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Ganymede')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>4. Fenomena ketika Bulan berada di antara Bumi dan Matahari?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s4"> a. Gerhana Bulan</label>
+        <label><input type="radio" name="s4"> b. Gerhana Matahari</label>
+        <label><input type="radio" name="s4"> c. Hujan meteor</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Gerhana Matahari')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>5. Planet yang sering disebut "kembaran Bumi"?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s5"> a. Mars</label>
+        <label><input type="radio" name="s5"> b. Venus</label>
+        <label><input type="radio" name="s5"> c. Merkurius</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Venus')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>6. Sabuk asteroid utama terletak di antara planet apa?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s6"> a. Mars dan Jupiter</label>
+        <label><input type="radio" name="s6"> b. Jupiter dan Saturnus</label>
+        <label><input type="radio" name="s6"> c. Saturnus dan Uranus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Mars dan Jupiter')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>7. Bintang yang menunjukkan arah utara?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s7"> a. Sirius</label>
+        <label><input type="radio" name="s7"> b. Polaris</label>
+        <label><input type="radio" name="s7"> c. Vega</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Polaris')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>8. Planet es raksasa berwarna biru kehijauan?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s8"> a. Jupiter</label>
+        <label><input type="radio" name="s8"> b. Uranus</label>
+        <label><input type="radio" name="s8"> c. Saturnus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Uranus')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>9. Apa yang biasanya tersisa setelah supernova bintang masif?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s9"> a. Nebula</label>
+        <label><input type="radio" name="s9"> b. Lubang hitam atau bintang neutron</label>
+        <label><input type="radio" name="s9"> c. Planet baru</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Lubang hitam atau bintang neutron')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>10. Konstelasi berbentuk pemburu dengan sabuk tiga bintang?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="s10"> a. Orion</label>
+        <label><input type="radio" name="s10"> b. Ursa Major</label>
+        <label><input type="radio" name="s10"> c. Cassiopeia</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Orion')">Lihat Jawaban</button>
+    </div>
+  </div>
+
+  <!-- =================== LEVEL SUSAH =================== -->
+  <div id="susah" class="level-section">
+    <a href="#" class="back-btn" onclick="showMainMenu()">← Kembali ke Menu</a>
+    <h2 style="text-align:center; color:#ffdd77; margin-bottom:2rem;">Level Susah</h2>
+
+    <div class="soal"><h3>1. Satelit alami terbesar di seluruh tata surya?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h1"> a. Titan</label>
+        <label><input type="radio" name="h1"> b. Ganymede</label>
+        <label><input type="radio" name="h1"> c. Callisto</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Ganymede')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>2. Bintang terdekat dengan Matahari (selain Matahari sendiri)?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h2"> a. Sirius</label>
+        <label><input type="radio" name="h2"> b. Proxima Centauri</label>
+        <label><input type="radio" name="h2"> c. Barnard’s Star</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Proxima Centauri')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>3. Tipe supernova yang terjadi pada bintang putih katai?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h3"> a. Tipe II</label>
+        <label><input type="radio" name="h3"> b. Tipe Ia</label>
+        <label><input type="radio" name="h3"> c. Tipe Ib</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Tipe Ia')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>4. Planet kerdil terbesar di sabuk Kuiper (diameter)?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h4"> a. Pluto</label>
+        <label><input type="radio" name="h4"> b. Eris</label>
+        <label><input type="radio" name="h4"> c. Haumea</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Pluto')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>5. Wilayah objek es di luar orbit Neptunus (dekat)?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h5"> a. Sabuk Asteroid</label>
+        <label><input type="radio" name="h5"> b. Sabuk Kuiper</label>
+        <label><input type="radio" name="h5"> c. Awan Oort</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Sabuk Kuiper')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>6. Bintang neutron yang berputar sangat cepat dan memancarkan sinyal radio disebut?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h6"> a. Quasar</label>
+        <label><input type="radio" name="h6"> b. Pulsar</label>
+        <label><input type="radio" name="h6"> c. Magnetar</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Pulsar')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>7. Konstelasi yang mengandung bintang Betelgeuse?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h7"> a. Orion</label>
+        <label><input type="radio" name="h7"> b. Scorpius</label>
+        <label><input type="radio" name="h7"> c. Cygnus</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: a. Orion')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>8. Objek dengan gravitasi sangat kuat hingga cahaya tidak bisa lolos?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h8"> a. Bintang neutron</label>
+        <label><input type="radio" name="h8"> b. Lubang hitam</label>
+        <label><input type="radio" name="h8"> c. Pulsar</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Lubang hitam')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>9. Awan hipotetis di pinggir tata surya yang menjadi sumber komet jangka panjang?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h9"> a. Sabuk Kuiper</label>
+        <label><input type="radio" name="h9"> b. Awan Oort</label>
+        <label><input type="radio" name="h9"> c. Nebula Orion</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Awan Oort')">Lihat Jawaban</button>
+    </div>
+
+    <div class="soal"><h3>10. Bintang yang paling mungkin menjadi supernova terdekat dalam beberapa ribu tahun?</h3>
+      <div class="pilihan">
+        <label><input type="radio" name="h10"> a. Sirius</label>
+        <label><input type="radio" name="h10"> b. Betelgeuse</label>
+        <label><input type="radio" name="h10"> c. Rigel</label>
+      </div>
+      <button class="jawab-btn" onclick="alert('Jawaban: b. Betelgeuse (waktunya masih tidak pasti)')">Lihat Jawaban</button>
+    </div>
+  </div>
+
+  <footer>
+    Dibuat dengan kekaguman pada alam semesta • © 2026 Bintang Kuis
+  </footer>
+
+  <script>
+    function showLevel(level) {
+      document.getElementById('mainMenu').style.display = 'none';
+      document.querySelectorAll('.level-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(level).classList.add('active');
+    }
+
+    function showMainMenu() {
+      document.querySelectorAll('.level-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById('mainMenu').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
